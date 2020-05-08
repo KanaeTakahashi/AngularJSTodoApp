@@ -47,4 +47,10 @@ angular.module('myapp', [])
                 }
             }); 
         };
+
+        // 選択されたタスクを削除するイベント
+        // これでよいのかは自信がない…
+        $scope.taskSplice = function(index) {
+            $scope.tasks.splice(index, 1);
+        };
     }]);

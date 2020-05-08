@@ -48,7 +48,9 @@
                     {{task.body}}
                 </span>
                 <!-- 個別に削除するボタンを追加します -->
-                <a href ng-click="tasks.splice($index, 1)">[ × ]</a>
+                <!-- <a href ng-click="tasks.splice($index, 1)">[ × ]</a> -->
+                <!-- イベントをコントローラーの方に定義します。$index で現在のループ回数が取得できます。 -->
+                <a href ng-click="taskSplice($index)">[ × ]</a>
             </li>
         </ul>
         <form ng-submit="addNew()">
