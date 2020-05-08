@@ -20,7 +20,31 @@ angular.module('myapp', [])
         // 完了タスクを取得イベント
         $scope.getDoneCount = function() {
             var count = 0;
-            
+
+            // task配列の done=true の数を数える
+            angular.forEach($scope.tasks, function(task) {
+                count += task.done ? 1 : 0;
+
+                // 下記でもよい
+                // if(task.done) {
+                //     count++;
+                // }
+            });
+
             return count;
-        }
+        };
+
+        // 完了タスクを削除するイベント
+        $scope.deleteDone = function() {
+            // バックアップ
+            var oldTasks = $scope.tasks;
+            // 初期化
+            $scope.tasks = [];
+
+            angular.forEach(oldTasks, function(task) {
+                if(!task.done) {
+                    $scope.tasks.push(task);
+                }
+            }); 
+        };
     }]);

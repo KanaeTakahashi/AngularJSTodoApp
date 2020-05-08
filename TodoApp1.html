@@ -39,10 +39,12 @@
         <hr>
         <p>追加フォームを作成</p>
         <p>※  完了タスク {{getDoneCount()}} / {{tasks.length}}</p>
+        <!-- 削除ボタンを追加します -->
+        <button ng-click="deleteDone()">完了のタスクを削除</button>
         <ul>
             <li ng-repeat="task in tasks">
-                <input type="checkbox" ng-model="task.done3">
-                <span class="done-{{task.done3}}">
+                <input type="checkbox" ng-model="task.done">
+                <span class="done-{{task.done}}">
                     {{task.body}}
                 </span>
             </li>
