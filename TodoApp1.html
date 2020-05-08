@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ja" ng-app="myapp">
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularでTodoアプリを作成</title>
+		<!-- <script src= "http://code.angularjs.org/angularj-1.0.1.min.js"></script> -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+        <script src="myscript.js"></script>
+        <style>
+            .done-true {
+                color: gray;
+                text-decoration: line-through;
+            }
+        </style>
+	</head>
+	<body>
+        <h1>Todo List</h1>
+        <p>AngularでTodoアプリを作成します</p>
+        <hr>
+		<div ng-controller="MainController">
+            <ul>
+                <li ng-repeat="task in tasks">
+                    <!-- checkboxにコントローラーのプロパティを紐づけます -->
+                    <input type="checkbox" ng-model="task.done">
+                    {{task.body}}
+                </li>
+            </ul>
+            <p>スタイルを付け加えます</p>
+            <ul>
+                <p>done- { { task.done } } とすることでチェック状態によって切り替えることができる</p>
+                <p>ng-model="task.done2" はコントローラーのプロパティに存在しないので、デフォルトチェックONはなしで表示となる</p>
+                <li ng-repeat="task in tasks">
+                    <input type="checkbox" ng-model="task.done2">
+                    <span class="done-{{task.done2}}">
+                        {{task.body}}
+                    </span>
+                </li>
+            </ul>
+		</div>
+	</body>
+</html>
