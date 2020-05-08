@@ -47,6 +47,8 @@
                 <span class="done-{{task.done}}">
                     {{task.body}}
                 </span>
+                <!-- 個別に削除するボタンを追加します -->
+                <a href ng-click="tasks.splice($index, 1)">[ × ]</a>
             </li>
         </ul>
         <form ng-submit="addNew()">
